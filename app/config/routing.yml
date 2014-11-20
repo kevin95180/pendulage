@@ -1,0 +1,4 @@
+pendulage_accueil:
+    resource: "@PendulageAccueilBundle/Resources/config/routing.yml"
+    prefix:   /
+

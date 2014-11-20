@@ -1,0 +1,3 @@
+pendulage_accueil_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PendulageAccueilBundle:Default:index }
