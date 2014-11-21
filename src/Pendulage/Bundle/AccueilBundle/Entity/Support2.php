@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Support2
  *
- * @ORM\Table(name="support2")
+ * @ORM\Table(name="support2", indexes={@ORM\Index(name="fk_support2_AllSupport1_idx", columns={"supportNom"})})
  * @ORM\Entity
  */
 class Support2
@@ -22,9 +22,12 @@ class Support2
     private $idSupport;
 
     /**
-     * @var string
+     * @var \Allsupport
      *
-     * @ORM\Column(name="supportNom", type="string", length=10, nullable=false)
+     * @ORM\ManyToOne(targetEntity="Allsupport")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="supportNom", referencedColumnName="nomSupport")
+     * })
      */
     private $supportnom;
 
@@ -43,10 +46,10 @@ class Support2
     /**
      * Set supportnom
      *
-     * @param string $supportnom
+     * @param \Pendulage\Bundle\AccueilBundle\Entity\Allsupport $supportnom
      * @return Support2
      */
-    public function setSupportnom($supportnom)
+    public function setSupportnom(\Pendulage\Bundle\AccueilBundle\Entity\Allsupport $supportnom = null)
     {
         $this->supportnom = $supportnom;
 
@@ -56,15 +59,15 @@ class Support2
     /**
      * Get supportnom
      *
-     * @return string 
+     * @return \Pendulage\Bundle\AccueilBundle\Entity\Allsupport 
      */
     public function getSupportnom()
     {
         return $this->supportnom;
     }
     
-    public function __toString() {
-        return $this->supportnom;
-    }
+//    public function __toString() {
+//        return $this->supportnom;
+//    }
     
 }
