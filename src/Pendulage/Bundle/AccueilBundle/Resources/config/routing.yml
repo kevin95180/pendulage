@@ -25,3 +25,23 @@ vingtCinq_find:
 vingtCinq_find_by:
     path:     /FindBy
     defaults: { _controller: PendulageAccueilBundle:VingtCinq:FindBy }
+
+catenaire_lister:
+    path:     /catenaire/Lister
+    defaults: { _controller: PendulageAccueilBundle:Catenaire:Lister }
+
+catenaire_add:
+    path:     /catenaire/Add
+    defaults: { _controller: PendulageAccueilBundle:Catenaire:Add }
+
+catenaire_remove:
+    path:     /catenaire/Remove
+    defaults: { _controller: PendulageAccueilBundle:Catenaire:Remove }
+
+catenaire_modifier:
+    path:     /catenaire/Modifier
+    defaults: { _controller: PendulageAccueilBundle:Catenaire:Modifier }
+
+catenaire_find_by:
+    path:     /catenaire/FindBy
+    defaults: { _controller: PendulageAccueilBundle:Catenaire:FindBy }

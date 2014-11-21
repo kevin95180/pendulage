@@ -8,11 +8,8 @@ class VingtCinqController extends Controller
 {
     public function ListerAction()
     {
-        $repo = $this->getDoctrine()->getRepository('PendulageAccueilBundle:Ohle');
-        $listeOhle = $repo->findAll();
-        
         return $this->render('PendulageAccueilBundle:VingtCinq:Lister.html.twig', array(
-                "listeOhle"=>$listeOhle
+              // ...  
             ));    }
 
     public function RemoveAction()

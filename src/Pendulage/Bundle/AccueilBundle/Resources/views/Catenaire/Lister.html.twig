@@ -1,0 +1,38 @@
+{% extends "PendulageAccueilBundle::base.html.twig" %}
+
+{% block title %}Catenaire{% endblock %}
+
+{% block body %}
+
+{% for ohle in listeOhle %}
+  <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Caractéristiques catenaire</div>
+
+      <!-- Table -->
+      <table class="table">
+          <thead>
+            <tr>
+                <th>Type of OHLE</th>
+                <th>Messenger wire weight</th>
+                <th>Messenger wire tension</th>
+                <th>Contact wire weight</th>
+                <th>Contact wire tension (per wire)</th>
+                <th>Weight of dropper P</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>CA V350 20/26</td>
+                  <td>{{ohle.MessengerWireWeight}}</td>
+                  <td>{{ohle.MessengerWireTension}}</td>
+                  <td>{{ohle.ContactWireWeight}}</td>
+                  <td>{{ohle.ContactWireTension}}</td>
+                  <td>{{ohle.WeightOfDropper}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+{% endfor %}     
+
+{% endblock %}
