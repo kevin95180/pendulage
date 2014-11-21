@@ -9,6 +9,14 @@ class AddOhleForm extends \Symfony\Component\Form\AbstractType {
         $builder->add("ohleOhle")
                 ->add("support1Support")
                 ->add("support2Support")
+                ->add("spanlenth")
+                ->add("sysheightleft")
+                ->add("sysheightright")
+                ->add("intendedsag")
+                ->add("dropperrepartition")
+                ->add("distanceminimun")
+                ->add("distancemaximun")
+                ->add("distanceaxis")
                 ->add("save", "submit");
     }
     
