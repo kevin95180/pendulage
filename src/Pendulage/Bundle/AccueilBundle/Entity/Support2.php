@@ -5,12 +5,12 @@ namespace Pendulage\Bundle\AccueilBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Support
+ * Support2
  *
- * @ORM\Table(name="support")
+ * @ORM\Table(name="support2")
  * @ORM\Entity
  */
-class Support
+class Support2
 {
     /**
      * @var integer
@@ -44,7 +44,7 @@ class Support
      * Set supportnom
      *
      * @param string $supportnom
-     * @return Support
+     * @return Support2
      */
     public function setSupportnom($supportnom)
     {
@@ -62,4 +62,9 @@ class Support
     {
         return $this->supportnom;
     }
+    
+    public function __toString() {
+        return $this->supportnom;
+    }
+    
 }

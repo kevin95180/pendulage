@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Calcul
  *
- * @ORM\Table(name="calcul", indexes={@ORM\Index(name="fk_calcul_ohle_idx", columns={"ohle_id_ohle"}), @ORM\Index(name="fk_calcul_support1_idx", columns={"support_id_support"})})
+ * @ORM\Table(name="calcul", indexes={@ORM\Index(name="fk_calcul_ohle_idx", columns={"ohle_id_ohle"}), @ORM\Index(name="fk_calcul_support11_idx", columns={"support1_id_support"}), @ORM\Index(name="fk_calcul_support21_idx", columns={"support2_id_support"})})
  * @ORM\Entity
  */
 class Calcul
@@ -88,14 +88,24 @@ class Calcul
     private $ohleOhle;
 
     /**
-     * @var \Support
+     * @var \Support1
      *
-     * @ORM\ManyToOne(targetEntity="Support")
+     * @ORM\ManyToOne(targetEntity="Support1")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="support_id_support", referencedColumnName="id_support")
+     *   @ORM\JoinColumn(name="support1_id_support", referencedColumnName="id_support")
      * })
      */
-    private $supportSupport;
+    private $support1Support;
+
+    /**
+     * @var \Support2
+     *
+     * @ORM\ManyToOne(targetEntity="Support2")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="support2_id_support", referencedColumnName="id_support")
+     * })
+     */
+    private $support2Support;
 
 
 
@@ -317,25 +327,48 @@ class Calcul
     }
 
     /**
-     * Set supportSupport
+     * Set support1Support
      *
-     * @param \Pendulage\Bundle\AccueilBundle\Entity\Support $supportSupport
+     * @param \Pendulage\Bundle\AccueilBundle\Entity\Support1 $support1Support
      * @return Calcul
      */
-    public function setSupportSupport(\Pendulage\Bundle\AccueilBundle\Entity\Support $supportSupport = null)
+    public function setSupport1Support(\Pendulage\Bundle\AccueilBundle\Entity\Support1 $support1Support = null)
     {
-        $this->supportSupport = $supportSupport;
+        $this->support1Support = $support1Support;
 
         return $this;
     }
 
     /**
-     * Get supportSupport
+     * Get support1Support
      *
-     * @return \Pendulage\Bundle\AccueilBundle\Entity\Support 
+     * @return \Pendulage\Bundle\AccueilBundle\Entity\Support1 
      */
-    public function getSupportSupport()
+    public function getSupport1Support()
     {
-        return $this->supportSupport;
+        return $this->support1Support;
+    }
+
+    /**
+     * Set support2Support
+     *
+     * @param \Pendulage\Bundle\AccueilBundle\Entity\Support2 $support2Support
+     * @return Calcul
+     */
+    public function setSupport2Support(\Pendulage\Bundle\AccueilBundle\Entity\Support2 $support2Support = null)
+    {
+        $this->support2Support = $support2Support;
+
+        return $this;
+    }
+
+    /**
+     * Get support2Support
+     *
+     * @return \Pendulage\Bundle\AccueilBundle\Entity\Support2 
+     */
+    public function getSupport2Support()
+    {
+        return $this->support2Support;
     }
 }
