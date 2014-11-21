@@ -215,11 +215,12 @@ class Ohle
     
     public function __toString() {
         return $this->typeofohle
-                    ." kg/m | ".$this->messengerwireweight
-                    ." N | ".$this->messengerwiretension
-                    ." kg/m | ".$this->contactwireweight
-                    ." N | ".$this->contactwiretension
-                    ." kg | ".$this->weightofdropper
+                ." | ".$this->messengerwireweight
+                ." kg/m | ".$this->messengerwiretension
+                ." N | ".$this->contactwireweight
+                ." kg/m | ".$this->contactwiretension
+                ." N | ".$this->weightofdropper
+                ." kg"
                 ;
     }
     
