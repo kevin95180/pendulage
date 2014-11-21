@@ -1,0 +1,20 @@
+Pendulage\Bundle\AccueilBundle\Entity\Ohle:
+    properties:
+        typeofohle:
+            - NotBlank:
+                message: "Obligatoire"
+        messengerwireweight:
+            - NotBlank:
+                message: "Obligatoire"
+        messengerwiretension:
+            - NotBlank:
+                message: "Obligatoire"
+        contactwireweight:
+            - NotBlank:
+                message: "Obligatoire"
+        contactwiretension:
+            - NotBlank:
+                message: "Obligatoire"
+        weightofdropper:
+            - NotBlank:
+                message: "Obligatoire"

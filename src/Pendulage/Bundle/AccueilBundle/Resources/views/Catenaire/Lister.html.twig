@@ -4,10 +4,9 @@
 
 {% block body %}
 
-{% for ohle in listeOhle %}
   <div class="panel panel-default">
       <!-- Default panel contents -->
-      <div class="panel-heading">Caractéristiques catenaire</div>
+      <div class="panel-heading">Caractéristiques catenaire 25KV</div>
 
       <!-- Table -->
       <table class="table">
@@ -21,9 +20,11 @@
                 <th>Weight of dropper P</th>
             </tr>
           </thead>
+          {% for ohle in listeOhle %}
           <tbody>
               <tr>
-                  <td>CA V350 20/26</td>
+                  
+                  <td>{{ohle.typeofohle}}</td>
                   <td>{{ohle.MessengerWireWeight}}</td>
                   <td>{{ohle.MessengerWireTension}}</td>
                   <td>{{ohle.ContactWireWeight}}</td>
@@ -31,8 +32,8 @@
                   <td>{{ohle.WeightOfDropper}}</td>
               </tr>
           </tbody>
+          {% endfor %}  
       </table>
   </div>
-{% endfor %}     
 
 {% endblock %}

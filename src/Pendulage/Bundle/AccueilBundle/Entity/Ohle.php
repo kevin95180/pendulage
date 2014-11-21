@@ -15,11 +15,11 @@ class Ohle
     /**
      * @var integer
      *
-     * @ORM\Column(name="idOHLE", type="integer", nullable=false)
+     * @ORM\Column(name="id_ohle", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idohle;
+    private $idOhle;
 
     /**
      * @var float
@@ -56,16 +56,23 @@ class Ohle
      */
     private $weightofdropper;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TypeOfOhle", type="string", length=45, nullable=false)
+     */
+    private $typeofohle;
+
 
 
     /**
-     * Get idohle
+     * Get idOhle
      *
      * @return integer 
      */
-    public function getIdohle()
+    public function getIdOhle()
     {
-        return $this->idohle;
+        return $this->idOhle;
     }
 
     /**
@@ -182,4 +189,38 @@ class Ohle
     {
         return $this->weightofdropper;
     }
+
+    /**
+     * Set typeofohle
+     *
+     * @param string $typeofohle
+     * @return Ohle
+     */
+    public function setTypeofohle($typeofohle)
+    {
+        $this->typeofohle = $typeofohle;
+
+        return $this;
+    }
+
+    /**
+     * Get typeofohle
+     *
+     * @return string 
+     */
+    public function getTypeofohle()
+    {
+        return $this->typeofohle;
+    }
+    
+    public function __toString() {
+        return $this->typeofohle
+                    ." kg/m | ".$this->messengerwireweight
+                    ." N | ".$this->messengerwiretension
+                    ." kg/m | ".$this->contactwireweight
+                    ." N | ".$this->contactwiretension
+                    ." kg | ".$this->weightofdropper
+                ;
+    }
+    
 }

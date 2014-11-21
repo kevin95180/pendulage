@@ -1,7 +1,31 @@
-{% extends "::base.html.twig" %}
+{% extends "PendulageAccueilBundle::base.html.twig" %}
+{% import "PendulageAccueilBundle::bootstrap.html.twig" as bootstrap%}
 
-{% block title %}PendulageAccueilBundle:Catenaire:Add{% endblock %}
+{% block title %}Pendulage{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('bundles/pendulageaccueil/js/select2-3.5.1/select2.css')}}">
+    <link rel="stylesheet" href="{{asset('bundles/pendulageaccueil/js/select2-3.5.1/select2-bootstrap.css')}}">
+{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Catenaire:Add page</h1>
+<h1>Ajouter un catenaire 25 KV</h1>
+
+{{form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form', 'novalidate': ''} })}}
+
+{{bootstrap.formGroup(form.TypeOfOhle, 'Type of Ohle')}}
+{{bootstrap.formGroup(form.MessengerWireWeight, 'Messenger Wire Weight')}}
+{{bootstrap.formGroup(form.MessengerWireTension, 'Messenger Wire Tension')}}
+{{bootstrap.formGroup(form.ContactWireWeight, 'Contact Wire Weight')}}
+{{bootstrap.formGroup(form.ContactWireTension, 'Contact Wire Tension')}}
+{{bootstrap.formGroup(form.WeightOfDropper, 'Weight Of Dropper')}}
+
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        {{form_widget(form.save, {'attr': {'class':'btn btn-default'} })}}
+    </div>
+</div>
+{{ form_end(form) }}
+
 {% endblock %}

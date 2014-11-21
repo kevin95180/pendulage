@@ -1,7 +1,20 @@
-{% extends "::base.html.twig" %}
+{% extends "PendulageAccueilBundle::base.html.twig" %}
+{% import "PendulageAccueilBundle::bootstrap.html.twig" as bootstrap%}
 
 {% block title %}PendulageAccueilBundle:VingtCinq:Add{% endblock %}
 
 {% block body %}
-<h1>Welcome to the VingtCinq:Add page</h1>
+    <h1>Calcul 25KV alternatif</h1>
+    
+    {{form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form', 'novalidate': ''} })}}
+
+    {{bootstrap.formGroup(form.ohleOhle, 'Type of Ohle')}}
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            {{form_widget(form.save, {'attr': {'class':'btn btn-default'} })}}
+        </div>
+    </div>
+    {{ form_end(form) }}
+    
 {% endblock %}
