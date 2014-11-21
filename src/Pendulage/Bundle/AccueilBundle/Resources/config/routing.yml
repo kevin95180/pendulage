@@ -1,3 +1,27 @@
 pendulage_accueil_homepage:
     path:     /
     defaults: { _controller: PendulageAccueilBundle:Default:index }
+
+vingtCinq_lister:
+    path:     /Lister
+    defaults: { _controller: PendulageAccueilBundle:VingtCinq:Lister }
+
+vingtCinq_remove:
+    path:     /Remove
+    defaults: { _controller: PendulageAccueilBundle:VingtCinq:Remove }
+
+vingtCinq_add:
+    path:     /Add
+    defaults: { _controller: PendulageAccueilBundle:VingtCinq:Add }
+
+vingtCinq_modifier:
+    path:     /Modifier
+    defaults: { _controller: PendulageAccueilBundle:VingtCinq:Modifier }
+
+vingtCinq_find:
+    path:     /Find
+    defaults: { _controller: PendulageAccueilBundle:VingtCinq:Find }
+
+vingtCinq_find_by:
+    path:     /FindBy
+    defaults: { _controller: PendulageAccueilBundle:VingtCinq:FindBy }

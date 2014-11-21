@@ -1,0 +1,12 @@
+{% extends "PendulageAccueilBundle::base.html.twig" %}
+
+{% block title %}Pendulage 25KV{% endblock %}
+
+{% block body %}
+<h1>25KV</h1>
+
+{% for ohle in listeOhle %}
+    {{ohle.MessengerWireWeight}}
+{% endfor %}     
+
+{% endblock %}
