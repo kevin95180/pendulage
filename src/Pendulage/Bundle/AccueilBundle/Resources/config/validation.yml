@@ -18,3 +18,38 @@ Pendulage\Bundle\AccueilBundle\Entity\Ohle:
         weightofdropper:
             - NotBlank:
                 message: "Obligatoire"
+Pendulage\Bundle\AccueilBundle\Entity\Calcul:
+    properties:
+        ohleOhle:
+            - NotBlank:
+                message: "Obligatoire"
+        support1Support:
+            - NotBlank:
+                message: "Obligatoire"
+        support2Support:
+            - NotBlank:
+                message: "Obligatoire"
+        spanlenth:
+            - NotBlank:
+                message: "Obligatoire"
+        sysheightleft:
+            - NotBlank:
+                message: "Obligatoire"
+        sysheightright:
+            - NotBlank:
+                message: "Obligatoire"
+        intendedsag:
+            - NotBlank:
+                message: "Obligatoire"
+        dropperrepartition:
+            - NotBlank:
+                message: "Obligatoire"
+        distanceminimun:
+            - NotBlank:
+                message: "Obligatoire"
+        distancemaximun:
+            - NotBlank:
+                message: "Obligatoire"
+        distanceaxis:
+            - NotBlank:
+                message: "Obligatoire"
