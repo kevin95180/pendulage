@@ -53,3 +53,13 @@ Pendulage\Bundle\AccueilBundle\Entity\Calcul:
         distanceaxis:
             - NotBlank:
                 message: "Obligatoire"
+Pendulage\Bundle\AccueilBundle\Entity\Support1:
+    properties:
+        nom:
+            - NotBlank:
+                message: "Obligatoire"
+Pendulage\Bundle\AccueilBundle\Entity\Support2:
+    properties:
+        nom:
+            - NotBlank:
+                message: "Obligatoire"

@@ -45,3 +45,27 @@ catenaire_modifier:
 catenaire_find_by:
     path:     /catenaire/FindBy
     defaults: { _controller: PendulageAccueilBundle:Catenaire:FindBy }
+
+support_add:
+    path:     /support/add
+    defaults: { _controller: PendulageAccueilBundle:Support:Add }
+
+support_find:
+    path:     /support/find
+    defaults: { _controller: PendulageAccueilBundle:Support:Find }
+
+support_remove:
+    path:     /support/remove
+    defaults: { _controller: PendulageAccueilBundle:Support:Remove }
+
+support_add_gauche:
+    path:     /support/addGauche
+    defaults: { _controller: PendulageAccueilBundle:Support:AddGauche }
+
+support_modif:
+    path:     /support/modif
+    defaults: { _controller: PendulageAccueilBundle:Support:Modif }
+    
+support_lister:
+    path:     /support/lister
+    defaults: { _controller: PendulageAccueilBundle:Support:Lister }

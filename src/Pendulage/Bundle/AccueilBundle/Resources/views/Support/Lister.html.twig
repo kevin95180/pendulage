@@ -1,0 +1,29 @@
+{% extends "PendulageAccueilBundle::base.html.twig" %}
+
+{% block title %}PendulageAccueilBundle:Support:Find{% endblock %}
+
+{% block body %}
+    <h1>Liste </h1>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Liste des supports</div>
+
+        <!-- Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Support Gauche</th>
+                </tr>
+            </thead>
+            {% for supportGauche in listeGauche %}
+                <tbody>
+                    <tr>
+                        <td>{{supportGauche.nom}}</td>
+                    </tr>
+                </tbody>
+            {% endfor %}  
+        </table>
+    </div>
+
+{% endblock %}
