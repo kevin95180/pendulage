@@ -9,8 +9,11 @@ class VingtCinqController extends Controller
 {
     public function ListerAction()
     {
+        $repo = $this->getDoctrine()->getRepository('PendulageAccueilBundle:Calcul');
+        $listeVingtCinq = $repo->findAll();
+        
         return $this->render('PendulageAccueilBundle:VingtCinq:Lister.html.twig', array(
-              // ...  
+              "listeVingtCinq"=>$listeVingtCinq 
             ));    }
 
     public function RemoveAction()
@@ -34,7 +37,7 @@ class VingtCinqController extends Controller
 
                 $this->get("session")->getFlashBag()->add("success", "Calcul bien ajouté");
 
-                return $this->redirect($this->generateUrl("pendulage_accueil_homepage"));
+                return $this->redirect($this->generateUrl("vingtCinq_lister"));
             }
         }
         

@@ -3,6 +3,45 @@
 {% block title %}Pendulage 25KV{% endblock %}
 
 {% block body %}
-<h1>25KV</h1>
+    <h1>25KV</h1>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Résultat calcul</div>
+
+        <!-- Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>support de gauche</th>
+                    <th>support de droite</th>
+                    <th>Span length</th>
+                    <th>System height left</th>
+                    <th>System height right</th>
+                    <th>Intended sag</th>
+                    <th>Dropper repartition (spacing</th>
+                    <th>distance minimun</th>
+                    <th>distance maximun</th>
+                    <th>distance axe</th>
+                </tr>
+            </thead>
+            {% for vingtCinq in listeVingtCinq %}
+                <tbody>
+                    <tr>
+                        <td>{{vingtCinq.support1Support}}</td>
+                        <td>{{vingtCinq.support2Support}}</td>
+                        <td>{{vingtCinq.spanlenth}}</td>
+                        <td>{{vingtCinq.sysheightleft}}</td>
+                        <td>{{vingtCinq.sysheightright}}</td>
+                        <td>{{vingtCinq.intendedsag}}</td>
+                        <td>{{vingtCinq.dropperrepartition}}</td>
+                        <td>{{vingtCinq.distanceminimun}}</td>
+                        <td>{{vingtCinq.distancemaximun}}</td>
+                        <td>{{vingtCinq.distanceaxis}}</td>
+                    </tr>
+                </tbody>
+            {% endfor %}  
+        </table>
+    </div>
 
 {% endblock %}
