@@ -10,40 +10,57 @@
 {% endblock %}
 
 {% block body %}
-<h3>Ajouter un catenaire 25 KV</h3>
+    <h3>Ajouter un catenaire 25 KV</h3>
 
-{#Graph#}
-<div id="chartdiv" style="height:300px;width:950px; "></div>
-<br/>
+    {#Graph#}
+    <div id="chartdiv" style="height:300px;width:950px; "></div>
+    <br/>
 
-{{form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form', 'novalidate': ''} })}}
+    {{form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form', 'novalidate': ''} })}}
 
-{{bootstrap.formGroup(form.TypeOfOhle, 'Type of Ohle')}}
-{{bootstrap.formGroup(form.MessengerWireWeight, 'Messenger Wire Weight')}}
-{{bootstrap.formGroup(form.MessengerWireTension, 'Messenger Wire Tension')}}
-{{bootstrap.formGroup(form.ContactWireWeight, 'Contact Wire Weight')}}
-{{bootstrap.formGroup(form.ContactWireTension, 'Contact Wire Tension')}}
-{{bootstrap.formGroup(form.WeightOfDropper, 'Weight Of Dropper')}}
+    {{bootstrap.formGroup(form.TypeOfOhle, 'Type of Ohle')}}
+    {{bootstrap.formGroup(form.MessengerWireWeight, 'Messenger Wire Weight')}}
+    {{bootstrap.formGroup(form.MessengerWireTension, 'Messenger Wire Tension')}}
+    {{bootstrap.formGroup(form.ContactWireWeight, 'Contact Wire Weight')}}
+    {{bootstrap.formGroup(form.ContactWireTension, 'Contact Wire Tension')}}
+    {{bootstrap.formGroup(form.WeightOfDropper, 'Weight Of Dropper')}}
 
 
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-        {{form_widget(form.save, {'attr': {'class':'btn btn-default'} })}}
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            {{form_widget(form.save, {'attr': {'class':'btn btn-default'} })}}
+        </div>
     </div>
-</div>
-{{ form_end(form) }}
+    {{ form_end(form) }}
 
-{% block javascripts %}
+    {% block javascripts %}
         <script src="{{asset('bundles/pendulageaccueil/jqplot/dist/jquery.min.js')}}"></script>
         <script src="{{asset('bundles/pendulageaccueil/jqplot/dist/jquery.jqplot.min.js')}}"></script>
 
 
         <script>
             $(function () {
-                $.jqplot('chartdiv', [[[1, 2], [3, 5.12], [5, 13.1], [7, 33.6], [9, 85.9], [11, 219.9]]],
+                var line1 = [[0, 1.224], [4.5, 1.049], [11.25, 0.92], [18, 0.838], [24.75, 0.809], [31.5, 0.802], [38.25, 0.816], [45, 1.138]];
+                var line2 = [[0, 0.5], [45, 0.5]];
+                
+                var pend1 = [[0, 0.5], [0, 1.224]];
+                var pend2 = [[5, 1.049], [0, 1.049]];
+                var pend3 = [[0, 0.5], [0, 0.92]];
+                var pend4 = [[0, 0.5], [0, 0.838]];
+                var pend5 = [[0, 0.5], [0, 0.809]];
+                var pend6 = [[0, 0.5], [0, 0.802]];
+                var pend7 = [[0, 0.5], [0, 0.816]];
+                var pend8 = [[0, 0.5], [0, 1.138]];
+
+                plot1 = $.jqplot('chartdiv', [line1, line2, pend1,
+                       pend2,pend3,pend4,pend5,pend6,pend7,pend8],
                         {title: '25KV alternatif',
-                            axes: {yaxis: {min: 0, max: 250}},
-                            series: [{color: '#5FAB78'}]
+                            axes: {yaxis: {min: 0, max: 2}},
+                            seriesDefaults: {
+                                rendererOptions: {
+                                    smooth: true
+                                }
+                            }
                         });
             });
         </script>
