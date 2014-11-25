@@ -1,0 +1,22 @@
+{% extends "PendulageAccueilBundle::base.html.twig" %}
+{% import "PendulageAccueilBundle::bootstrap.html.twig" as bootstrap%}
+
+{% block title %}PendulageAccueilBundle:Isolateur:Add{% endblock %}
+
+{% block body %}
+<h1>Ajouter un Isolateur</h1>
+
+{{form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form', 'novalidate': ''} })}}
+
+    {{bootstrap.formGroup(form.poidisoporteur, 'Poid iso sur porteur')}}
+    {{bootstrap.formGroup(form.poidfilcontacte, 'Poid sur fil contact')}}
+    {{bootstrap.formGroup(form.distanceaxe, 'Distance entre axe')}}
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            {{form_widget(form.save, {'attr': {'class':'btn btn-default'} })}}
+        </div>
+    </div>
+{{ form_end(form) }}
+
+{% endblock %}

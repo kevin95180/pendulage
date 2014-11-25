@@ -55,11 +55,11 @@ Pendulage\Bundle\AccueilBundle\Entity\Calcul:
                 message: "Obligatoire"
 Pendulage\Bundle\AccueilBundle\Entity\Support1:
     properties:
-        nom:
+        supportnom:
             - NotBlank:
                 message: "Obligatoire"
 Pendulage\Bundle\AccueilBundle\Entity\Support2:
     properties:
-        nom:
+        supportnom:
             - NotBlank:
                 message: "Obligatoire"

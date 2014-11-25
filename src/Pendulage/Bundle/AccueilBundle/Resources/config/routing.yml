@@ -69,3 +69,19 @@ support_modif:
 support_lister:
     path:     /support/lister
     defaults: { _controller: PendulageAccueilBundle:Support:Lister }
+
+iso_add:
+    path:     /Iso/Add
+    defaults: { _controller: PendulageAccueilBundle:Isolateur:Add }
+
+iso_modif:
+    path:     /Iso/Modif
+    defaults: { _controller: PendulageAccueilBundle:Isolateur:Modif }
+
+iso_remove:
+    path:     /Iso/Remove
+    defaults: { _controller: PendulageAccueilBundle:Isolateur:Remove }
+
+iso_find:
+    path:     /Iso/Find
+    defaults: { _controller: PendulageAccueilBundle:Isolateur:Find }

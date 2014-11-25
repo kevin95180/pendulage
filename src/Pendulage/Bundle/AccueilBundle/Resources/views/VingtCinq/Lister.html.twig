@@ -11,15 +11,72 @@
 
     {#Graph#}
     <div id="chartdiv" style="height:400px;width:950px; "></div>
-
-    <div class="panel panel-default">
+    
+    <br/><br/>
+    
+    <table class="table">
+          <thead>
+            <tr>
+                <th>Pendules</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <th>Répartition</th>
+                  <td>4.500</td>
+                  <td>6.750</td>
+                  <td>6.750</td>
+                  <td>6.750</td>
+                  <td>6.750</td>
+                  <td>6.750</td>
+                  <td>6.750</td>
+                  <td>4.500</td>
+              </tr>
+          </tbody>
+          <tbody>
+              <tr>
+                  <th>Entraxes "L"</th>
+                  <td>xxxxxx</td>
+                  <td>xxxxxx</td>
+                  <td>xxxxxx</td>
+                  <td>xxxxxx</td>
+                  <td>xxxxxx</td>
+                  <td>xxxxxx</td>
+                  <td>xxxxxx</td>
+                  <td>xxxxxx</td>
+              </tr>
+          </tbody>
+          <tbody>
+              <tr>
+                  <th>Longueurs "l"</th>
+                  <td>xxxxxx</td>
+                  <td>xxxxxx</td>
+                  <td>xxxxxx</td>
+                  <td>xxxxxx</td>
+                  <td>xxxxxx</td>
+                  <td>xxxxxx</td>
+                  <td>xxxxxx</td>
+                  <td>xxxxxx</td>
+              </tr>
+          </tbody>
+      </table>
+    
+    {#<div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">Calcule flèche du fil de contact</div>
         {% for vingtCinq in listeVingtCinq %}
             {% set fa = ((1/1000) * vingtCinq.spanlenth)/1000 %}
             {{fa}}
         {% endfor %}  
-    </div>
+    </div>#}
 
     {% block javascripts %}
         <script src="{{asset('bundles/pendulageaccueil/jqplot/dist/jquery.min.js')}}"></script>

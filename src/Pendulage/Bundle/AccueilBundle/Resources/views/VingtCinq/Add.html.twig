@@ -5,12 +5,21 @@
 
 {% block body %}
     <h1>Calcul 25KV alternatif</h1>
-    
-    {{form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form', 'novalidate': ''} })}}
 
+
+    <div class="row">
+        <div class="col-md-10">
+            {{bootstrap.formGroup(form.isolateur, 'Isolateur ')}}
+        </div>
+        <div class="col-md-2"><a href="{{path('iso_add')}}"><button type="button" class="btn btn-danger">New Isolateur</button></a></div>
+    </div>
+    <br/>
+    {{form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form', 'novalidate': ''} })}}
     {{bootstrap.formGroup(form.ohleOhle, 'Type of Ohle')}}
     {{bootstrap.formGroup(form.support1Support, 'Numéro du support de gauche')}}
+    {{bootstrap.formGroup(form.relevementgauche, 'Relevement de gauche ')}}
     {{bootstrap.formGroup(form.support2Support, 'Numéro du support de droite')}}
+    {{bootstrap.formGroup(form.relevementdroite, 'Relevement de droite ')}}
     {{bootstrap.formGroup(form.spanlenth, 'Span length')}}
     {{bootstrap.formGroup(form.sysheightleft, 'System height left')}}
     {{bootstrap.formGroup(form.sysheightright, 'System height right')}}
@@ -25,6 +34,64 @@
             {{form_widget(form.save, {'attr': {'class':'btn btn-default'} })}}
         </div>
     </div>
+
+    <br/>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Pendules</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Répartition</th>
+                <td>4.500</td>
+                <td>6.750</td>
+                <td>6.750</td>
+                <td>6.750</td>
+                <td>6.750</td>
+                <td>6.750</td>
+                <td>6.750</td>
+                <td>4.500</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <th>Entraxes "L"</th>
+                <td>xxxxxx</td>
+                <td>xxxxxx</td>
+                <td>xxxxxx</td>
+                <td>xxxxxx</td>
+                <td>xxxxxx</td>
+                <td>xxxxxx</td>
+                <td>xxxxxx</td>
+                <td>xxxxxx</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <th>Longueurs "l"</th>
+                <td>xxxxxx</td>
+                <td>xxxxxx</td>
+                <td>xxxxxx</td>
+                <td>xxxxxx</td>
+                <td>xxxxxx</td>
+                <td>xxxxxx</td>
+                <td>xxxxxx</td>
+                <td>xxxxxx</td>
+            </tr>
+        </tbody>
+    </table>
+
     {{ form_end(form) }}
-    
+
 {% endblock %}

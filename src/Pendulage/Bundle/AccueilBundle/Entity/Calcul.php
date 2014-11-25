@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Calcul
  *
- * @ORM\Table(name="calcul", indexes={@ORM\Index(name="fk_calcul_ohle_idx", columns={"ohle_id_ohle"}), @ORM\Index(name="fk_calcul_support11_idx", columns={"support1_id_support"}), @ORM\Index(name="fk_calcul_support21_idx", columns={"support2_id_support"})})
+ * @ORM\Table(name="calcul", indexes={@ORM\Index(name="fk_calcul_ohle_idx", columns={"ohle_id_ohle"}), @ORM\Index(name="fk_calcul_support11_idx", columns={"support1_id_support"}), @ORM\Index(name="fk_calcul_support21_idx", columns={"support2_id_support"}), @ORM\Index(name="fk_calcul_isolateur1_idx", columns={"isolateur_id"})})
  * @ORM\Entity
  */
 class Calcul
@@ -76,6 +76,30 @@ class Calcul
      * @ORM\Column(name="distanceAxis", type="float", precision=10, scale=0, nullable=false)
      */
     private $distanceaxis;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="relevementGauche", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $relevementgauche;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="relevementDroite", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $relevementdroite;
+
+    /**
+     * @var \Isolateur
+     *
+     * @ORM\ManyToOne(targetEntity="Isolateur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="isolateur_id", referencedColumnName="id")
+     * })
+     */
+    private $isolateur;
 
     /**
      * @var \Ohle
@@ -301,6 +325,75 @@ class Calcul
     public function getDistanceaxis()
     {
         return $this->distanceaxis;
+    }
+
+    /**
+     * Set relevementgauche
+     *
+     * @param float $relevementgauche
+     * @return Calcul
+     */
+    public function setRelevementgauche($relevementgauche)
+    {
+        $this->relevementgauche = $relevementgauche;
+
+        return $this;
+    }
+
+    /**
+     * Get relevementgauche
+     *
+     * @return float 
+     */
+    public function getRelevementgauche()
+    {
+        return $this->relevementgauche;
+    }
+
+    /**
+     * Set relevementdroite
+     *
+     * @param float $relevementdroite
+     * @return Calcul
+     */
+    public function setRelevementdroite($relevementdroite)
+    {
+        $this->relevementdroite = $relevementdroite;
+
+        return $this;
+    }
+
+    /**
+     * Get relevementdroite
+     *
+     * @return float 
+     */
+    public function getRelevementdroite()
+    {
+        return $this->relevementdroite;
+    }
+
+    /**
+     * Set isolateur
+     *
+     * @param \Pendulage\Bundle\AccueilBundle\Entity\Isolateur $isolateur
+     * @return Calcul
+     */
+    public function setIsolateur(\Pendulage\Bundle\AccueilBundle\Entity\Isolateur $isolateur = null)
+    {
+        $this->isolateur = $isolateur;
+
+        return $this;
+    }
+
+    /**
+     * Get isolateur
+     *
+     * @return \Pendulage\Bundle\AccueilBundle\Entity\Isolateur 
+     */
+    public function getIsolateur()
+    {
+        return $this->isolateur;
     }
 
     /**

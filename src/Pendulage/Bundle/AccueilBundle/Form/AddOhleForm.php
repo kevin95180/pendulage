@@ -17,6 +17,9 @@ class AddOhleForm extends \Symfony\Component\Form\AbstractType {
                 ->add("distanceminimun")
                 ->add("distancemaximun")
                 ->add("distanceaxis")
+                ->add("isolateur")
+                ->add("relevementgauche")
+                ->add("relevementdroite")
                 ->add("save", "submit");
     }
     

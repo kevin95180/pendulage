@@ -24,9 +24,9 @@ class Support1
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=45, nullable=false)
+     * @ORM\Column(name="supportNom", type="string", length=25, nullable=false)
      */
-    private $nom;
+    private $supportnom;
 
 
 
@@ -41,30 +41,30 @@ class Support1
     }
 
     /**
-     * Set nom
+     * Set supportnom
      *
-     * @param string $nom
+     * @param string $supportnom
      * @return Support1
      */
-    public function setNom($nom)
+    public function setSupportnom($supportnom)
     {
-        $this->nom = $nom;
+        $this->supportnom = $supportnom;
 
         return $this;
     }
 
     /**
-     * Get nom
+     * Get supportnom
      *
      * @return string 
      */
-    public function getNom()
+    public function getSupportnom()
     {
-        return $this->nom;
+        return $this->supportnom;
     }
     
     public function __toString() {
-        return $this->nom;
+        return $this->supportnom;
     }
     
 }
