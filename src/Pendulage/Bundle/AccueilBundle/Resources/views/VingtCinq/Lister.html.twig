@@ -2,46 +2,40 @@
 
 {% block title %}Pendulage 25KV{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('bundles/pendulageaccueil/jqplot/dist/jquery.jqplot.css')}}">
+{% endblock %}
+
 {% block body %}
     <h1>25KV</h1>
 
+    {#Graph#}
+    <div id="chartdiv" style="height:400px;width:300px; "></div>
+
     <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading">Résultat calcul</div>
-
-        <!-- Table -->
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>support de gauche</th>
-                    <th>support de droite</th>
-                    <th>Span length</th>
-                    <th>System height left</th>
-                    <th>System height right</th>
-                    <th>Intended sag</th>
-                    <th>Dropper repartition (spacing</th>
-                    <th>distance minimun</th>
-                    <th>distance maximun</th>
-                    <th>distance axe</th>
-                </tr>
-            </thead>
-            {% for vingtCinq in listeVingtCinq %}
-                <tbody>
-                    <tr>
-                        <td>{{vingtCinq.support1Support}}</td>
-                        <td>{{vingtCinq.support2Support}}</td>
-                        <td>{{vingtCinq.spanlenth}}</td>
-                        <td>{{vingtCinq.sysheightleft}}</td>
-                        <td>{{vingtCinq.sysheightright}}</td>
-                        <td>{{vingtCinq.intendedsag}}</td>
-                        <td>{{vingtCinq.dropperrepartition}}</td>
-                        <td>{{vingtCinq.distanceminimun}}</td>
-                        <td>{{vingtCinq.distancemaximun}}</td>
-                        <td>{{vingtCinq.distanceaxis}}</td>
-                    </tr>
-                </tbody>
-            {% endfor %}  
-        </table>
+        <div class="panel-heading">Calcule flèche du fil de contact</div>
+        {% for vingtCinq in listeVingtCinq %}
+            {% set fa = ((1/1000) * vingtCinq.spanlenth)/1000 %}
+            {{fa}}
+        {% endfor %}  
     </div>
+
+    {% block javascripts %}
+        <script src="{{asset('bundles/pendulageaccueil/jqplot/dist/jquery.min.js')}}"></script>
+        <script src="{{asset('bundles/pendulageaccueil/jqplot/dist/jquery.jqplot.min.js')}}"></script>
+
+
+        <script>
+            $(function () {
+                $.jqplot('chartdiv', [[[1, 2], [3, 5.12], [5, 13.1], [7, 33.6], [9, 85.9], [11, 219.9]]],
+                        {title: '25KV alternatif',
+                            axes: {yaxis: {min: 0, max: 240}},
+                            series: [{color: '#5FAB78'}]
+                        });
+            });
+        </script>
+
+    {% endblock %}
 
 {% endblock %}
