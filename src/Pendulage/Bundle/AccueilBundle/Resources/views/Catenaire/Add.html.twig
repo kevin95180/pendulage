@@ -6,10 +6,15 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{asset('bundles/pendulageaccueil/js/select2-3.5.1/select2.css')}}">
     <link rel="stylesheet" href="{{asset('bundles/pendulageaccueil/js/select2-3.5.1/select2-bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('bundles/pendulageaccueil/jqplot/dist/jquery.jqplot.css')}}">
 {% endblock %}
 
 {% block body %}
-<h1>Ajouter un catenaire 25 KV</h1>
+<h3>Ajouter un catenaire 25 KV</h3>
+
+{#Graph#}
+<div id="chartdiv" style="height:300px;width:950px; "></div>
+<br/>
 
 {{form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form', 'novalidate': ''} })}}
 
@@ -27,5 +32,21 @@
     </div>
 </div>
 {{ form_end(form) }}
+
+{% block javascripts %}
+        <script src="{{asset('bundles/pendulageaccueil/jqplot/dist/jquery.min.js')}}"></script>
+        <script src="{{asset('bundles/pendulageaccueil/jqplot/dist/jquery.jqplot.min.js')}}"></script>
+
+
+        <script>
+            $(function () {
+                $.jqplot('chartdiv', [[[1, 2], [3, 5.12], [5, 13.1], [7, 33.6], [9, 85.9], [11, 219.9]]],
+                        {title: '25KV alternatif',
+                            axes: {yaxis: {min: 0, max: 250}},
+                            series: [{color: '#5FAB78'}]
+                        });
+            });
+        </script>
+    {% endblock %}
 
 {% endblock %}
