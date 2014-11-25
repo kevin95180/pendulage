@@ -44,16 +44,17 @@
                 var line2 = [[0, 0.5], [45, 0.5]];
                 
                 var pend1 = [[0, 0.5], [0, 1.224]];
-                var pend2 = [[5, 1.049], [0, 1.049]];
-                var pend3 = [[0, 0.5], [0, 0.92]];
-                var pend4 = [[0, 0.5], [0, 0.838]];
-                var pend5 = [[0, 0.5], [0, 0.809]];
-                var pend6 = [[0, 0.5], [0, 0.802]];
-                var pend7 = [[0, 0.5], [0, 0.816]];
-                var pend8 = [[0, 0.5], [0, 1.138]];
+                var pend2 = [[4.5, 0.5], [4.5, 1.049]];
+                var pend3 = [[11.25, 0.5], [11.25, 0.92]];
+                var pend4 = [[18, 0.5], [18, 0.838]];
+                var pend5 = [[24.75, 0.5], [24.75, 0.809]];
+                var pend6 = [[31.5, 0.5], [31.5, 0.802]];
+                var pend7 = [[38.25, 0.5], [38.25, 0.816]];
+                var pend8 = [[45, 0.5], [45, 1.138]];
 
                 plot1 = $.jqplot('chartdiv', [line1, line2, pend1,
-                       pend2,pend3,pend4,pend5,pend6,pend7,pend8],
+                        pend2, pend3, pend4, pend5,pend6, pend7, pend8
+                        ],
                         {title: '25KV alternatif',
                             axes: {yaxis: {min: 0, max: 2}},
                             seriesDefaults: {
