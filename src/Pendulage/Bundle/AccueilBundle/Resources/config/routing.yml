@@ -85,3 +85,23 @@ iso_remove:
 iso_find:
     path:     /Iso/Find
     defaults: { _controller: PendulageAccueilBundle:Isolateur:Find }
+
+consulter_add:
+    path:     /Consulter/Add
+    defaults: { _controller: PendulageAccueilBundle:Consulter:Add }
+
+consulter_modif:
+    path:     /Consulter/Modif
+    defaults: { _controller: PendulageAccueilBundle:Consulter:Modif }
+
+consulter_find:
+    path:     /Consulter/Find
+    defaults: { _controller: PendulageAccueilBundle:Consulter:Find }
+
+consulter_remove:
+    path:     /Consulter/Remove
+    defaults: { _controller: PendulageAccueilBundle:Consulter:Remove }
+
+consulter_lister:
+    path:     /Consulter/Lister
+    defaults: { _controller: PendulageAccueilBundle:Consulter:Lister }
