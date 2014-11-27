@@ -97,7 +97,9 @@ consulter_modif:
 consulter_find:
     path:     /Consulter/Find
     defaults: { _controller: PendulageAccueilBundle:Consulter:Find }
-
+    requirements:
+        _method: POST
+        
 consulter_remove:
     path:     /Consulter/Remove
     defaults: { _controller: PendulageAccueilBundle:Consulter:Remove }
