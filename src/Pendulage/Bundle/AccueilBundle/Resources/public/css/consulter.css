@@ -1,0 +1,11 @@
+#resultats_recherche .container>h3+#form_recherche{
+    display: none;
+}
+
+#resultats_recherche .container>h3{
+    display: none;
+}
+
+#resultats_recherche nav{
+    display: none;
+}

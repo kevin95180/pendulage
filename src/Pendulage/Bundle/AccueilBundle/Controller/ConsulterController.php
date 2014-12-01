@@ -42,7 +42,6 @@ class ConsulterController extends Controller {
         
         if ($request->isXmlHttpRequest()) {
             $motcle = $request->request->get('motcle');
-            
             if ($motcle != '') {
                 
                 $listeConsultation = $repo->findBy(array('portee'=>$motcle));
@@ -51,8 +50,8 @@ class ConsulterController extends Controller {
                 $listeConsultation = $repo->findAll();
             }
 
-            return $this->container->get('templating')->renderResponse('PendulageAccueilBundle:Consulter:Lister.html.twig', array(
-                        'listeConsultation' => $listeConsultation
+            return $this->render('PendulageAccueilBundle:Consulter:Lister.html.twig', array(
+                'listeConsultation' => $listeConsultation
             ));
         } else {
             return $this->ListerAction();
