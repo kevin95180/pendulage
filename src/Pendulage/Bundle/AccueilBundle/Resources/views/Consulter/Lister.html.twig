@@ -4,7 +4,7 @@
 {% block title %}PendulageAccueilBundle:Consulter:Lister{% endblock %}
 
 {% block stylesheets %}
-<link rel="stylesheet" href="{{asset('bundles/pendulageaccueil/css/consulter.css')}}">
+    <link rel="stylesheet" href="{{asset('bundles/pendulageaccueil/css/consulter.css')}}">
 {% endblock %}
 
 {% block body %}
@@ -12,33 +12,88 @@
 
     <form id="form_recherche" action="{{ path('consulter_find') }}" method="POST" >
         <label for="test">Portée :</label>
-	<input type="text" id="test" /><br />
+        <input type="text" id="test" /><br />
         <input type="submit" value="Rechercher"/>
     </form>
-    
-    <div id="resultats_recherche">
-        {% for test in listeConsultation %}
-            {{ test.nom }}
-        {% endfor %}
-    </div >
 
-    {% block javascripts %}
-        <script>
-            $("#form_recherche").submit(function() {
-                var motcle = $("#test").val();
-                var DATA = 'motcle=' + motcle;
-                $.ajax({
-                    type: "POST",
-                    url: "{{ path('consulter_find')}}",
-                    data: DATA,
-                    cache: false,
-                    success: function (data) {
-                        $('#resultats_recherche').html(data);
-                    }
-                });
-                return false;
+    <div id="resultats_recherche">
+        <br/>
+        {% for test in listeConsultation %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Pendules: {{ test.portee }}</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Répartition</th>
+                    <td>4.500</td>
+                    <td>6.750</td>
+                    <td>6.750</td>
+                    <td>6.750</td>
+                    <td>6.750</td>
+                    <td>6.750</td>
+                    <td>6.750</td>
+                    <td>4.500</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th>Entraxes "L"</th>
+                    <td>xxxxxx</td>
+                    <td>xxxxxx</td>
+                    <td>xxxxxx</td>
+                    <td>xxxxxx</td>
+                    <td>xxxxxx</td>
+                    <td>xxxxxx</td>
+                    <td>xxxxxx</td>
+                    <td>xxxxxx</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th>Longueurs "l"</th>
+                    <td>xxxxxx</td>
+                    <td>xxxxxx</td>
+                    <td>xxxxxx</td>
+                    <td>xxxxxx</td>
+                    <td>xxxxxx</td>
+                    <td>xxxxxx</td>
+                    <td>xxxxxx</td>
+                    <td>xxxxxx</td>
+                </tr>
+            </tbody>
+        </table>
+    </table>
+    {% endfor %}
+</div >
+
+{% block javascripts %}
+    <script>
+        $("#form_recherche").submit(function () {
+            var motcle = $("#test").val();
+            var DATA = 'motcle=' + motcle;
+            $.ajax({
+                type: "POST",
+                url: "{{ path('consulter_find')}}",
+                data: DATA,
+                cache: false,
+                success: function (data) {
+                    $('#resultats_recherche').html(data);
+                }
             });
-        </script>
-    {% endblock %}
+            return false;
+        });
+    </script>
+{% endblock %}
 
 {% endblock %}
