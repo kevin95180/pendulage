@@ -5,8 +5,9 @@
         <title>{% block title %}Pendulage{% endblock %}</title>
         <link rel="stylesheet" href="{{asset('bundles/pendulageaccueil/css/bootstrap.css')}}">
         <link rel="stylesheet" href="{{asset('bundles/pendulageaccueil/js/select2-3.5.1/select2-bootstrap.css')}}">
-    {% block stylesheets %}{% endblock %}
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
     {% include 'PendulageAccueilBundle::menu.html.twig' %}

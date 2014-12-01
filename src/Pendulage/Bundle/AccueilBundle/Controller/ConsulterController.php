@@ -38,17 +38,16 @@ class ConsulterController extends Controller {
     public function FindAction() {
 
         $request = $this->container->get('request');
+        $repo = $this->getDoctrine()->getRepository('PendulageAccueilBundle:Consultation');
+        
         if ($request->isXmlHttpRequest()) {
-            $motcle = '';
             $motcle = $request->request->get('motcle');
-
+            
             if ($motcle != '') {
                 
-                $repo = $this->getDoctrine()->getRepository('PendulageAccueilBundle:Consultation');
-                $listeConsultation = $repo->findAll();
+                $listeConsultation = $repo->findBy(array('portee'=>$motcle));
 
             } else {
-                $repo = $this->getDoctrine()->getRepository('PendulageAccueilBundle:Consultation');
                 $listeConsultation = $repo->findAll();
             }
 
@@ -59,13 +58,6 @@ class ConsulterController extends Controller {
             return $this->ListerAction();
         }
 
-        //        $repo = $this->getDoctrine()->getRepository('PendulageAccueilBundle:Consultation');
-        //        
-        //        $listeConsultationByPortee = $repo->findBy(array('portee'=>$portee));
-        //
-    //        return $this->render('PendulageAccueilBundle:Consulter:Find.html.twig', array(
-        //            "listeConsultationByPortee" => $listeConsultationByPortee
-        //        ));
     }
 
     public function RemoveAction() {
@@ -75,15 +67,12 @@ class ConsulterController extends Controller {
     }
 
     public function ListerAction() {
-
+        
         $repo = $this->getDoctrine()->getRepository('PendulageAccueilBundle:Consultation');
         $listeConsultation = $repo->findAll();
 
-        $form = $this->container->get('form.factory')->create(new FindConsultationForm());
-
-        return $this->container->get('templating')->renderResponse('PendulageAccueilBundle:Consulter:Lister.html.twig', array(
+        return $this->render('PendulageAccueilBundle:Consulter:Lister.html.twig', array(
                     'listeConsultation' => $listeConsultation,
-                    'form' => $form->createView()
         ));
     }
 

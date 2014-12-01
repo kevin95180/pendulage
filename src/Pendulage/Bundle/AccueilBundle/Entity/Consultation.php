@@ -152,4 +152,5 @@ class Consultation
     {
         return $this->repartition2;
     }
+    
 }
