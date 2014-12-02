@@ -44,14 +44,18 @@ class ConsulterController extends Controller {
             $motcle = $request->request->get('motcle');
             if ($motcle != '') {
                 
-                $listeConsultation = $repo->findBy(array('portee'=>$motcle));
+                $listeConsultation = $repo->findBy(array('portee'=>0));
 
             } else {
                 $listeConsultation = $repo->findAll();
             }
-
+            
+            $nbr= (int)$motcle;
+            $nbrLigne = $nbr-1;
+            
             return $this->render('PendulageAccueilBundle:Consulter:Lister.html.twig', array(
-                'listeConsultation' => $listeConsultation
+                'listeConsultation' => $listeConsultation,
+                'nbrLigne' => $nbrLigne
             ));
         } else {
             return $this->ListerAction();
@@ -69,9 +73,10 @@ class ConsulterController extends Controller {
         
         $repo = $this->getDoctrine()->getRepository('PendulageAccueilBundle:Consultation');
         $listeConsultation = $repo->findAll();
-
+        $nbrLigne=0;
         return $this->render('PendulageAccueilBundle:Consulter:Lister.html.twig', array(
-                    'listeConsultation' => $listeConsultation,
+            'listeConsultation' => $listeConsultation,
+            'nbrLigne' => $nbrLigne
         ));
     }
 
