@@ -71,12 +71,12 @@
     
     {#<div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading">Calcule flèche du fil de contact</div>
+        <div class="panel-heading">Portée de voie courante avec flèche intentionnelle - porteur non protégé</div>#}
         {% for vingtCinq in listeVingtCinq %}
-            {% set fa = ((1/1000) * vingtCinq.spanlenth)/1000 %}
+            {% set fonctionX = (4*) %}
             {{fa}}
         {% endfor %}  
-    </div>#}
+    {#</div>#}
 
     {% block javascripts %}
         <script src="{{asset('bundles/pendulageaccueil/jqplot/dist/jquery.min.js')}}"></script>

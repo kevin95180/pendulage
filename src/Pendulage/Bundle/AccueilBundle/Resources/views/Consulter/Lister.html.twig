@@ -9,99 +9,102 @@
 
 {% block body %}
     <h3>Consultation</h3>
-    
+
     <form id="form_recherche" action="{{ path('consulter_find') }}" method="POST" >
         <label for="test">Nombre de ligne:</label>
         <input type="text" id="test" />
         <input type="submit" value="Rechercher"/>
     </form>
-        
+
     <div id="nbrLigne">Ce document est composé de {{nbrLigne+1}} ligne(s).</div> 
 
     {% for i in 0..nbrLigne %}    
-    <div id="resultats_recherche">
-        <br/>
-        {% for test in listeConsultation %}
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Pendulage</th>
-                    <th>Repère</th>
-                    <th></th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th>7</th>
-                    <th>8</th>
-                    <th>9</th>
-                    <th>10</th>
-                    <th>11</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ test.portee }}</td>
-                    <td></td>
-                    <th>Répartition</th>
-                    <td>6.750</td>
-                    <td>6.750</td>
-                    <td>6.750</td>
-                    <td>6.750</td>
-                    <td>6.750</td>
-                    <td>4.500</td>
-                    <td>6.750</td>
-                    <td>6.750</td>
-                    <td>4.500</td>
-                    <td>4.500</td>
-                    <td>4.500</td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th></th>
-                    <td></td>
-                    <th>Entraxes "L"</th>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th></th>
-                    <td></td>
-                    <th>Longueurs "l"</th>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                    <td>xxxxxx</td>
-                </tr>
-            </tbody>
-        </table>
-    </table>
-    {% endfor %}
-</div >
+        <div id="resultats_recherche">
+            <br/>
+            {% for test in listeConsultation %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Pendulage</th>
+                            <th>Repère</th>
+                            <th></th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                            <th>10</th>
+                            <th>11</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <th>Répartition</th>
+                            <td>6.750</td>
+                            <td>6.750</td>
+                            <td>6.750</td>
+                            <td>6.750</td>
+                            <td>6.750</td>
+                            <td>4.500</td>
+                            <td>6.750</td>
+                            <td>6.750</td>
+                            <td>4.500</td>
+                            <td>4.500</td>
+                            <td>4.500</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                            <th>Entraxes "L"</th>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                            <th>Longueurs "l"</th>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                            <td>xxxxxx</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </table>
+        {% endfor %}
+    </div >
 {% endfor %}
 
 {% block javascripts %}
+    <script src="{{ asset('bundles/carnetaddressbook/js/select2-3.5.1/select2.js')}}"></script>
+    <script src="{{ asset('bundles/carnetaddressbook/js/select2-3.5.1/select2_locale_fr.js')}}"></script>
+
     <script>
         $("#form_recherche").submit(function () {
             var motcle = $("#test").val();
@@ -116,6 +119,12 @@
                 }
             });
             return false;
+        });
+    </script>
+
+    <script>
+        $("#AnnonceForm_categories").select2({
+            placeholder: 'test'
         });
     </script>
 {% endblock %}

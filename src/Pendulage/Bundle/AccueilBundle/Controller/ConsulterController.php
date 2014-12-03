@@ -33,6 +33,7 @@ class ConsulterController extends Controller {
         return $this->render('PendulageAccueilBundle:Consulter:Modif.html.twig', array(
                         // ...
         ));
+        
     }
 
     public function FindAction() {
