@@ -17,7 +17,9 @@
     <table class="table">
           <thead>
             <tr>
-                <th>Pendules</th>
+                <th>Pendules: 
+                    {{ temp }}
+                </th>
                 <th>1</th>
                 <th>2</th>
                 <th>3</th>
@@ -69,15 +71,6 @@
           </tbody>
       </table>
     
-    {#<div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">Portée de voie courante avec flèche intentionnelle - porteur non protégé</div>#}
-        {% for vingtCinq in listeVingtCinq %}
-            {% set fonctionX = (4*) %}
-            {{fa}}
-        {% endfor %}  
-    {#</div>#}
-
     {% block javascripts %}
         <script src="{{asset('bundles/pendulageaccueil/jqplot/dist/jquery.min.js')}}"></script>
         <script src="{{asset('bundles/pendulageaccueil/jqplot/dist/jquery.jqplot.min.js')}}"></script>

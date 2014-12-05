@@ -12,8 +12,34 @@ class VingtCinqController extends Controller
         $repo = $this->getDoctrine()->getRepository('PendulageAccueilBundle:Calcul');
         $listeVingtCinq = $repo->findAll();
         
+        //fonction obtenir le nombre de pendule
+//        $NbPendules = $repo->findBy(array('portee'=>0));
+        $NbPendules=40;
+        if ($NbPendules<=54.5 && $NbPendules>50) {
+            $temp=8;
+        }
+        elseif ($NbPendules<=50 && $NbPendules>45.5) {
+            $temp=7;
+        }
+        elseif ($NbPendules<=45.5 && $NbPendules>41) {
+            $temp=7;
+        }
+        elseif ($NbPendules<=41 && $NbPendules>36.5) {
+            $temp=6;
+        }
+        elseif ($NbPendules<=36.5 && $NbPendules>32) {
+            $temp=6;
+        }
+        elseif ($NbPendules<=32&& $NbPendules>0) {
+            $temp=5;
+        }else{
+            $temp=0;
+        }
+        
+        
         return $this->render('PendulageAccueilBundle:VingtCinq:Lister.html.twig', array(
-              "listeVingtCinq"=>$listeVingtCinq 
+              "listeVingtCinq"=>$listeVingtCinq,
+                "temp"=>$temp
             ));    }
 
     public function RemoveAction()
@@ -61,6 +87,42 @@ class VingtCinqController extends Controller
     {
         return $this->render('PendulageAccueilBundle:VingtCinq:FindBy.html.twig', array(
                 // ...
+            ));    }
+    
+    public function NbPendulesAction()
+    {
+        $repo = $this->getDoctrine()->getRepository('PendulageAccueilBundle:Calcul');
+        $listeVingtCinq = $repo->findAll();
+        
+        //function NbPendules
+        function NbPendules($varPortee){
+            if($varPortee<= 0){
+                $temp=0;
+            }
+            else if($varPortee<= 32){
+                $temp=5;
+            }
+            else if($varPortee<= 36.5){
+                $temp=6;
+            }
+            else if($varPortee<= 41){
+                $temp=6;
+            }
+            else if($varPortee<= 45.5){
+                $temp=7;
+            }
+            else if($varPortee<= 50){
+                $temp=7;
+            }
+            else if($varPortee<= 54.5){
+                $temp=8;
+            }
+            return $temp;
+        }
+        
+        return $this->render('PendulageAccueilBundle:VingtCinq:Lister.html.twig', array(
+              "listeVingtCinq"=>$listeVingtCinq ,
+                "temp"=>  $temp
             ));    }
 
 }
