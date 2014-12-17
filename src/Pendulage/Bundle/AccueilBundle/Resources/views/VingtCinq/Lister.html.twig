@@ -10,16 +10,15 @@
     <h1>25KV</h1>
 
     {#Graph#}
-    <div id="chartdiv" style="height:400px;width:950px; "></div>
+    {#<div id="chartdiv" style="height:400px;width:950px; "></div>#}
     
     <br/><br/>
     
     <table class="table">
           <thead>
             <tr>
-                <th>Pendules: 
-                    {{ temp }}
-                </th>
+                <th>Pendules: </th>
+                {% if temp==8 %}
                 <th>1</th>
                 <th>2</th>
                 <th>3</th>
@@ -28,45 +27,145 @@
                 <th>6</th>
                 <th>7</th>
                 <th>8</th>
+                {% elseif temp==7 %}
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>    
+                <th>7</th>    
+                {% elseif temp==6 %}
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>     
+                {% elseif temp==5 %}
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>    
+                {% else %}
+                    
+                {% endif %}
             </tr>
           </thead>
           <tbody>
               <tr>
-                  <th>Répartition</th>
-                  <td>4.500</td>
-                  <td>6.750</td>
-                  <td>6.750</td>
-                  <td>6.750</td>
-                  <td>6.750</td>
-                  <td>6.750</td>
-                  <td>6.750</td>
-                  <td>4.500</td>
+                <th>Répartition</th>
+                {% if temp==8 %}
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                {% elseif temp==7 %}
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                {% elseif temp==6 %}
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                {% elseif temp==5 %}
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                {% else %}
+                    
+                {% endif %}
+                  
               </tr>
           </tbody>
           <tbody>
               <tr>
                   <th>Entraxes "L"</th>
-                  <td>xxxxxx</td>
-                  <td>xxxxxx</td>
-                  <td>xxxxxx</td>
-                  <td>xxxxxx</td>
-                  <td>xxxxxx</td>
-                  <td>xxxxxx</td>
-                  <td>xxxxxx</td>
-                  <td>xxxxxx</td>
+                  {% if temp==8 %}
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                {% elseif temp==7 %}
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                {% elseif temp==6 %}
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                {% elseif temp==5 %}
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                {% else %}
+                    
+                {% endif %}
               </tr>
           </tbody>
           <tbody>
               <tr>
                   <th>Longueurs "l"</th>
-                  <td>xxxxxx</td>
-                  <td>xxxxxx</td>
-                  <td>xxxxxx</td>
-                  <td>xxxxxx</td>
-                  <td>xxxxxx</td>
-                  <td>xxxxxx</td>
-                  <td>xxxxxx</td>
-                  <td>xxxxxx</td>
+                  {% if temp==8 %}
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                {% elseif temp==7 %}
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                {% elseif temp==6 %}
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                {% elseif temp==5 %}
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                {% else %}
+                    
+                {% endif %}
               </tr>
           </tbody>
       </table>
